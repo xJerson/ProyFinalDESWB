@@ -16,6 +16,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Inz\Desktop\CARRERAS VIRTUALES\INFORMATICA\QUINTO CICLO\DESARROLLO DE SERVICIOS WEB I\PROYECTO\ProjectServices\ProyFinalDESWB\ProyFinalDESWB
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Inz/Desktop/CARRERAS VIRTUALES/INFORMATICA/QUINTO CICLO/DESARROLLO DE SERVICIOS WEB I/PROYECTO/ProjectServices/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/EditCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxFZGl0Q2xpZW50ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Inz/Desktop/CARRERAS VIRTUALES/INFORMATICA/QUINTO CICLO/DESARROLLO DE SERVICIOS WEB I/PROYECTO/ProjectServices/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/GrabarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxHcmFiYXJDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Inz/Desktop/CARRERAS VIRTUALES/INFORMATICA/QUINTO CICLO/DESARROLLO DE SERVICIOS WEB I/PROYECTO/ProjectServices/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/ListadoClientes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxMaXN0YWRvQ2xpZW50ZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

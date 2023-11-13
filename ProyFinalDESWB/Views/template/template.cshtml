@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title> Drop Down Sidebar Menu | CodingLab </title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="@Url.Content("~/css/style.css")">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -135,13 +140,30 @@
             <i class='bx bx-menu'></i>
             <span class="text">Drop Down Sidebar</span>
         </div>
-        <div class="container">
+        <div class="content">
             @RenderBody()
+            @RenderSection("Scripts", required: false)
         </div>
     </section>
-
-    <script src="js/script.js"></script>
+    <footer>
+        <!-- Contenido de tu footer (puede estar vacío) -->
+    </footer>   
+    <script src=@Url.Content("~/js/script.js")></script>
 
 </body>
+<style>
+    .content {
+        min-height: 100vh;
+        padding-bottom: 100px; /* Ajusta según la altura de tu footer */
+    }
 
+    footer {
+        background-color: #f0f0f0;
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+    }
+</style>
 </html>

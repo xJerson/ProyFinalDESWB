@@ -1,0 +1,70 @@
+﻿@model ProyFinalDESWB.Models.GrabarCliente
+
+@{
+    ViewData["Title"] = "GrabarCliente";
+}
+
+
+
+<h4 class="mt-3">GrabarCliente</h4>
+<hr />
+
+<div class="container mb-3" style="margin-left : 30%;">
+    <a asp-action="ListadoClientes" class="btn btn-success">Listado Clientes</a>
+
+</div>  
+   
+<div class="row" style="margin-left : 520px;">  
+
+    <div class="col-md-4">
+        <form asp-action="GrabarCliente" class="form-control">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="nombres_completo" class="control-label"></label>
+                <input asp-for="nombres_completo" class="form-control" />
+                <span asp-validation-for="nombres_completo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dniruc" class="control-label"></label>
+                <input asp-for="dniruc" class="form-control" />
+                <span asp-validation-for="dniruc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="direccion" class="control-label"></label>
+                <input asp-for="direccion" class="form-control" />
+                <span asp-validation-for="direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="correo" class="control-label"></label>
+                <input asp-for="correo" class="form-control" />
+                <span asp-validation-for="correo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tipocli" class="control-label"></label>
+                @Html.DropDownList("tipocli", (SelectList)ViewBag.Tipos,
+                "Seleccione", new { @class = "form-select" })
+                <span asp-validation-for="tipocli" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2 text-center">
+                <input type="submit" value="Create" class="btn btn-warning" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<br>
+
+
+@if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+{
+    <div class="alert alert-info" role="alert">
+        <p>@ViewBag.Mensaje</p>
+    </div>
+}
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -20,7 +20,7 @@ namespace ProyFinalDESWB.DAO
 
             SqlDataReader dr = SqlHelper.ExecuteReader(cad_conex, "SP_LISTAR_ESPECIALIDAD");
 
-            while(dr.Read())
+            while (dr.Read())
             {
                 listado.Add(new Especialidad
                 {
@@ -38,7 +38,7 @@ namespace ProyFinalDESWB.DAO
 
             SqlDataReader dr = SqlHelper.ExecuteReader(cad_conex, "SP_LISTAR_CONSULTOR");
 
-            while(dr.Read())
+            while (dr.Read())
             {
                 listado.Add(new Consultores
                 {
@@ -56,6 +56,51 @@ namespace ProyFinalDESWB.DAO
 
         }
 
-        public 
+        public string GrabarConsultor(Consultores obj)
+        {
+            try
+            {
+                SqlHelper.ExecuteNonQuery(cad_conex, "SP_REGISTRAR_CONSULTOR", obj.nombre,
+                                    obj.apellido, obj.dni, obj.correo, obj.codespecialidad);
+
+                return $"El Consultor {obj.nombre} {obj.apellido} a sido registrado correctamente";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string ActualizarConsultor(Consultores obj)
+        {
+            try
+            {
+                SqlHelper.ExecuteNonQuery(cad_conex, "SP_ACTUALIZAR_CONSULTOR", obj.nombre, obj.apellido,
+                    obj.dni, obj.correo, obj.codespecialidad, obj.cod_consultores);
+
+                return $"El Consultor con codigo {obj.cod_consultores} a sido actualizado correctamente";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string EliminarConsultor(string codcon)
+        {
+            try
+            {
+                SqlHelper.ExecuteNonQuery(cad_conex, "SP_ELIMINAR_CONSULTOR", codcon);
+
+                return $"El Consultor con codigo {codcon} a sido Eliminado correctamente";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+
+
     }
 }
