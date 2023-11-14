@@ -51,20 +51,7 @@
         </form>
     </div>
 </div>
-
-
 <br>
-
-
-@if (!string.IsNullOrEmpty(ViewBag.Mensaje))
-{
-    <div class="alert alert-info" role="alert">
-        <p>@ViewBag.Mensaje</p>
-    </div>
-}
-
-
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<div>
+    @ViewBag.Mensaje
+</div>

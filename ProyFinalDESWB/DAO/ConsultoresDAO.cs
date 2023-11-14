@@ -56,14 +56,14 @@ namespace ProyFinalDESWB.DAO
 
         }
 
-        public string GrabarConsultor(Consultores obj)
+        public string GrabarConsultor(string nombre, string apellido, string dni, string correo, int codespecialidad)
         {
             try
             {
-                SqlHelper.ExecuteNonQuery(cad_conex, "SP_REGISTRAR_CONSULTOR", obj.nombre,
-                                    obj.apellido, obj.dni, obj.correo, obj.codespecialidad);
+                SqlHelper.ExecuteNonQuery(cad_conex, "SP_REGISTRAR_CONSULTOR", nombre,
+                                    apellido, dni, correo, codespecialidad);
 
-                return $"El Consultor {obj.nombre} {obj.apellido} a sido registrado correctamente";
+                return $"El Consultor {nombre} {apellido} a sido registrado correctamente";
             }
             catch (Exception ex)
             {

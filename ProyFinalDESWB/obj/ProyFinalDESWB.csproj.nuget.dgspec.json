@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Inz\\Desktop\\CARRERAS VIRTUALES\\INFORMATICA\\QUINTO CICLO\\DESARROLLO DE SERVICIOS WEB I\\PROYECTO\\ProjectServices\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {}
+    "E:\\PROGRAMACION\\PROYECTO\\Proyecto_Servicios_GIT\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {}
   },
   "projects": {
-    "D:\\Inz\\Desktop\\CARRERAS VIRTUALES\\INFORMATICA\\QUINTO CICLO\\DESARROLLO DE SERVICIOS WEB I\\PROYECTO\\ProjectServices\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {
+    "E:\\PROGRAMACION\\PROYECTO\\Proyecto_Servicios_GIT\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Inz\\Desktop\\CARRERAS VIRTUALES\\INFORMATICA\\QUINTO CICLO\\DESARROLLO DE SERVICIOS WEB I\\PROYECTO\\ProjectServices\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
+        "projectUniqueName": "E:\\PROGRAMACION\\PROYECTO\\Proyecto_Servicios_GIT\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
         "projectName": "ProyFinalDESWB",
-        "projectPath": "D:\\Inz\\Desktop\\CARRERAS VIRTUALES\\INFORMATICA\\QUINTO CICLO\\DESARROLLO DE SERVICIOS WEB I\\PROYECTO\\ProjectServices\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
-        "packagesPath": "C:\\Users\\Inz\\.nuget\\packages\\",
-        "outputPath": "D:\\Inz\\Desktop\\CARRERAS VIRTUALES\\INFORMATICA\\QUINTO CICLO\\DESARROLLO DE SERVICIOS WEB I\\PROYECTO\\ProjectServices\\ProyFinalDESWB\\ProyFinalDESWB\\obj\\",
+        "projectPath": "E:\\PROGRAMACION\\PROYECTO\\Proyecto_Servicios_GIT\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
+        "packagesPath": "C:\\Users\\Fredy\\.nuget\\packages\\",
+        "outputPath": "E:\\PROGRAMACION\\PROYECTO\\Proyecto_Servicios_GIT\\ProyFinalDESWB\\ProyFinalDESWB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Inz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Fredy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ClienteDAO>();
-
+builder.Services.AddScoped<ConsultoresDAO>();
 
 var app = builder.Build();
 
@@ -27,9 +27,14 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "Consultores",
+    pattern: "{controller=Consultor}/{action=GrabarConsultores}/{id?}");
+
+/*
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=cliente}/{action=GrabarCliente}/{id?}");
-
+*/
 /*
 app.MapControllerRoute(
     name: "default",
