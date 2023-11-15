@@ -47,7 +47,7 @@ namespace ProyFinalDESWB.DAO
                     apellido = dr.GetString(2),
                     dni = dr.GetString(3),
                     correo = dr.GetString(4),
-                    nomespecialidad = dr.GetString(5),
+                    nomespecialidad = dr.GetString(5)
                 });
             }
             dr.Close();
@@ -56,14 +56,14 @@ namespace ProyFinalDESWB.DAO
 
         }
 
-        public string GrabarConsultor(string nombre, string apellido, string dni, string correo, int codespecialidad)
+        public string GrabarConsultor(SP_REGISTRAR_CONSULTOR obj)
         {
             try
             {
-                SqlHelper.ExecuteNonQuery(cad_conex, "SP_REGISTRAR_CONSULTOR", nombre,
-                                    apellido, dni, correo, codespecialidad);
+                SqlHelper.ExecuteNonQuery(cad_conex, "SP_REGISTRAR_CONSULTOR", obj.nombre,
+                                    obj.apellido, obj.dni, obj.correo, obj.codespecialidad);
 
-                return $"El Consultor {nombre} {apellido} a sido registrado correctamente";
+                return $"El Consultor {obj.nombre} {obj.apellido} a sido registrado correctamente";
             }
             catch (Exception ex)
             {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using ProyFinalDESWB.ConsultarVistaModelo;
 using ProyFinalDESWB.DAO;
 using ProyFinalDESWB.Models;
 
@@ -19,13 +20,19 @@ namespace ProyFinalDESWB.Controllers
         public IActionResult ListarConsultores()
         {
             var listado = condao.ListadoConsultores();
+            var vistamodelo = new ConsultorVistaGrabar
+            {
+                consultores = listado,
+                registrar = new SP_REGISTRAR_CONSULTOR()
+            };
+
             return View(listado);
         }
 
         //GET
         public ActionResult GrabarConsultores()
         {
-            Consultores consultor = new Consultores();
+            SP_REGISTRAR_CONSULTOR consultor = new SP_REGISTRAR_CONSULTOR();
 
             ViewBag.Especialidad = new SelectList(
                 condao.ListadoEspecialidad(), 
@@ -37,21 +44,14 @@ namespace ProyFinalDESWB.Controllers
 
         //POST
         [HttpPost]
-        public ActionResult GrabarConsultores(Consultores obj)
+        public ActionResult GrabarConsultores(SP_REGISTRAR_CONSULTOR obj)
         {
-            var nombre = obj.nombre;
-            var apellido = obj.apellido;
-            var dni = obj.dni;
-            var correo = obj.correo;
-            var codespecialidad = obj.codespecialidad;
 
             try
             {
-                obj.cod_consultores = "";
-                obj.nomespecialidad = "";
                 if (ModelState.IsValid)
                 {
-                    ViewBag.Mensaje = condao.GrabarConsultor(nombre, apellido, dni, correo, codespecialidad);
+                    ViewBag.Mensaje = condao.GrabarConsultor(obj);
                 }
             }
             catch (Exception ex)
