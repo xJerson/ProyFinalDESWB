@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using ProyFinalDESWB.ConsultarVistaModelo;
 using ProyFinalDESWB.DAO;
 using ProyFinalDESWB.Models;
 
@@ -20,12 +19,6 @@ namespace ProyFinalDESWB.Controllers
         public IActionResult ListarConsultores()
         {
             var listado = condao.ListadoConsultores();
-            var vistamodelo = new ConsultorVistaGrabar
-            {
-                consultores = listado,
-                registrar = new SP_REGISTRAR_CONSULTOR()
-            };
-
             return View(listado);
         }
 
@@ -69,9 +62,9 @@ namespace ProyFinalDESWB.Controllers
         }
 
         //GET
-        public ActionResult ActualizarConsultor(string codcon)
+        public ActionResult ActualizarConsultor(string cod_consultores="")
         {
-            var consultor = condao.ListadoConsultores().Find(c => c.cod_consultores.Equals(codcon));
+            var consultor = condao.buscarConsultores(cod_consultores);
 
             ViewBag.Especialidad = new SelectList(
                 condao.ListadoEspecialidad(),
@@ -81,10 +74,10 @@ namespace ProyFinalDESWB.Controllers
 
             return View(consultor);
         }
-
+            
         //POST
         [HttpPost]
-        public ActionResult ActualizarConsultor(Consultores obj)
+        public ActionResult ActualizarConsultor(SP_ACTUALIZAR_CONSULTOR obj)
         {
             try
             {
@@ -97,6 +90,12 @@ namespace ProyFinalDESWB.Controllers
             {
                 ViewBag.Mensaje = ex.Message;
             }
+
+            ViewBag.Especialidad = new SelectList(
+                condao.ListadoEspecialidad(),
+                "cod_especialidad",
+                "nom_especialidad"
+            );
 
             return View(obj);
         }

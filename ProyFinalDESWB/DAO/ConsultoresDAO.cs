@@ -47,13 +47,30 @@ namespace ProyFinalDESWB.DAO
                     apellido = dr.GetString(2),
                     dni = dr.GetString(3),
                     correo = dr.GetString(4),
-                    nomespecialidad = dr.GetString(5)
+                    codespecialidad = dr.GetInt32(5),
+                    nomespecialidad = dr.GetString(6)
                 });
             }
             dr.Close();
 
             return listado;
 
+        }
+
+        public Consultores buscarConsultores(string codcon)
+        {
+            var listado = ListadoConsultores().Find(c => c.cod_consultores.Equals(codcon));
+
+            Consultores resultado = new Consultores()
+            {
+                cod_consultores = listado.cod_consultores,
+                nombre = listado.nombre,
+                apellido = listado.apellido,
+                dni = listado.dni,
+                correo = listado.correo,
+                codespecialidad = listado.codespecialidad
+            };
+            return resultado;
         }
 
         public string GrabarConsultor(SP_REGISTRAR_CONSULTOR obj)
@@ -71,7 +88,7 @@ namespace ProyFinalDESWB.DAO
             }
         }
 
-        public string ActualizarConsultor(Consultores obj)
+        public string ActualizarConsultor(SP_ACTUALIZAR_CONSULTOR obj)
         {
             try
             {

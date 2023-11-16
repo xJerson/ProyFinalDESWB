@@ -1,7 +1,4 @@
-﻿@model Co
-
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+﻿@model IEnumerable<ProyFinalDESWB.Models.Consultores>
 
 @{
     ViewData["Title"] = "ListarConsultores";
@@ -9,39 +6,35 @@
 
 <h1>ListarConsultores</h1>
 
-<div>
-    <button type="button" class="btn btn-primary" id="btnRegistrarConsultor">
-        Registrar Consultor
-    </button>
-</div>
-<br/>
+<p>
+    <a asp-action="GrabarConsultores" class="btn btn-primary">Nuevo Consultor</a>
+</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.consultores.FirstOrDefault().cod_consultores)
+                @Html.DisplayNameFor(model => model.cod_consultores)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.consultores.FirstOrDefault().nombre)
+                @Html.DisplayNameFor(model => model.nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.consultores.FirstOrDefault().apellido)
+                @Html.DisplayNameFor(model => model.apellido)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.consultores.FirstOrDefault().dni)
+                @Html.DisplayNameFor(model => model.dni)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.consultores.FirstOrDefault().correo)
-            </th> 
+                @Html.DisplayNameFor(model => model.correo)
+            </th>
             <th>
-                @Html.DisplayNameFor(model => model.consultores.FirstOrDefault().nomespecialidad)
+                @Html.DisplayNameFor(model => model.nomespecialidad)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.consultores)
-        {
+@foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.cod_consultores)
@@ -62,52 +55,27 @@
                 @Html.DisplayFor(modelItem => item.nomespecialidad)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    <a asp-action="ActualizarConsultor" class="btn btn-warning" asp-route-cod_consultores="@item.cod_consultores">Actualizar</a> |
+                    <button type="button" class="btn btn-danger">Eliminar</button>
             </td>
         </tr>
 }
     </tbody>
 </table>
 
-<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="registerModalLabel">Registro de Consultor</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <!-- Formulario de registro aquí -->
-                <form id="consultorForm">
-                    <div class="mb-3">
-                        <label asp-for="registrar.nombre" class="form-label">Nombre:</label>
-                        <input asp-for="registrar.nombre" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label asp-for="registrar.apellido" class="form-label">Apellido:</label>
-                        <input asp-for="registrar.apellido" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label asp-for="registrar.dni" class="form-label">DNI:</label>
-                        <input asp-for="registrar.dni" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label asp-for="registrar.correo" class="form-label">Correo:</label>
-                        <input asp-for="registrar.correo" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label asp-for="registrar.codespecialidad" class="form-label">Especialidad:</label>
-                        <!-- Aquí puedes usar un dropdown o input según sea necesario -->
-                        <input asp-for="registrar.codespecialidad" class="form-control" />
-                    </div>
-                    <!-- Otros campos del formulario -->
-                </form>
+                ...
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Registrar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
@@ -124,21 +92,21 @@
                 $("#registerModal").modal('show');
             });
         });
-
-        function registrarConsultor(){
+/*
+        function registrarConsultor() {
             var formularioDatos = $('#consultorForm').serialize();
             $.ajax({
                 type: "POST",
                 url: "/Consultor/GrabarConsultores",
                 data: formularioDatos,
-                success: function(response){
+                success: function (response) {
                     console.log(response);
                     $("#registerModal").modal('hide');
                 },
-                error: function (error){
+                error: function (error) {
                     console.log(error)
                 }
             });
-        }
+        }*/
     </script>
 }

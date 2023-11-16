@@ -1,17 +1,22 @@
-﻿@model ProyFinalDESWB.Models.SP_REGISTRAR_CONSULTOR
+﻿@model ProyFinalDESWB.Models.SP_ACTUALIZAR_CONSULTOR
 
 @{
-    ViewData["Title"] = "GrabarConsultores";
+    ViewData["Title"] = "ActualizarConsultor";
 }
 
-<h1>GrabarConsultores</h1>
+<h1>ActualizarConsultor</h1>
 
-<h4>SP_REGISTRAR_CONSULTOR</h4>
+<h4>SP_BUSCAR_CONSULTOR</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="GrabarConsultores">
+        <form asp-action="ActualizarConsultor">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="cod_consultores" class="control-label"></label>
+                <input asp-for="cod_consultores" class="form-control"  readonly/>
+                <span asp-validation-for="cod_consultores" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="nombre" class="control-label"></label>
                 <input asp-for="nombre" class="form-control" />
@@ -34,21 +39,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="codespecialidad" class="control-label"></label>
-                @Html.DropDownList("codespecialidad", (SelectList)ViewBag.Especialidad,
-                                "Seleccionar Especialidad", new { @class = "form-select"})
+                @Html.DropDownList("codespecialidad", (SelectList)ViewBag.Especialidad, "Seleccione", new { @class = "form-select"})
             </div>
+            <br />
             <div class="form-group">
-                <input type="submit" value="Registrar Consultor" class="btn btn-primary" />
+                <input type="submit" value="Actualizar Consultor" class="btn btn-primary" /> |
                 <a asp-action="ListarConsultores" class="btn btn-info">Regresar al listado</a>
             </div>
         </form>
     </div>
 </div>
-<br />
+
 <div>
     @ViewBag.Mensaje
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
