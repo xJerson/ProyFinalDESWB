@@ -62,7 +62,7 @@ namespace ProyFinalDESWB.Controllers
         }
 
         //GET
-        public ActionResult ActualizarConsultor(string cod_consultores="")
+        public ActionResult ActualizarConsultor(string cod_consultores)
         {
             var consultor = condao.buscarConsultores(cod_consultores);
 

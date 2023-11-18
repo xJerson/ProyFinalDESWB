@@ -57,18 +57,18 @@ namespace ProyFinalDESWB.DAO
 
         }
 
-        public Consultores buscarConsultores(string codcon)
+        public SP_ACTUALIZAR_CONSULTOR buscarConsultores(string codcon)
         {
             var listado = ListadoConsultores().Find(c => c.cod_consultores.Equals(codcon));
 
-            Consultores resultado = new Consultores()
+            SP_ACTUALIZAR_CONSULTOR resultado = new SP_ACTUALIZAR_CONSULTOR()
             {
-                cod_consultores = listado.cod_consultores,
                 nombre = listado.nombre,
                 apellido = listado.apellido,
                 dni = listado.dni,
                 correo = listado.correo,
-                codespecialidad = listado.codespecialidad
+                codespecialidad = listado.codespecialidad,
+                cod_consultores = listado.cod_consultores,
             };
             return resultado;
         }
