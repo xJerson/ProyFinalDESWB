@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ProyFinalDESWB.Models.SP_LISTAR_EMPLEADOS>
+
+@{
+    ViewData["Title"] = "ListadoEmpleados";
+}
+
+<h1>ListadoEmpleados</h1>
+
+<p>
+    <a asp-action="GrabarEmpleados" class="btn btn-primary">Nuevo Empleado</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cod_empleados)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.anio_ingreso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cod_empleados)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.anio_ingreso)
+            </td>
+            <td>
+                <a asp-action="" class="btn btn-warning">Actualizar</a> |
+                <a asp-action="" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

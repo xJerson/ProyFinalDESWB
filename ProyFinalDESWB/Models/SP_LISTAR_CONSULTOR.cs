@@ -1,6 +1,6 @@
 ﻿namespace ProyFinalDESWB.Models
 {
-    public class Consultores
+    public class SP_LISTAR_CONSULTOR
     {
         public string cod_consultores { get; set; }
         public string nombre { get; set; }

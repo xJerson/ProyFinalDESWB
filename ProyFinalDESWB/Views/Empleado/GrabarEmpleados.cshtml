@@ -1,0 +1,49 @@
+﻿@model ProyFinalDESWB.Models.SP_REGISTRAR_EMPLEADOS
+
+@{
+    ViewData["Title"] = "GrabarEmpleados";
+}
+
+<h1>GrabarEmpleados</h1>
+
+<h4>Empleados</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="GrabarEmpleados">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="nombre" class="control-label"></label>
+                <input asp-for="nombre" class="form-control" />
+                <span asp-validation-for="nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="apellido" class="control-label"></label>
+                <input asp-for="apellido" class="form-control" />
+                <span asp-validation-for="apellido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dni" class="control-label"></label>
+                <input asp-for="dni" class="form-control" />
+                <span asp-validation-for="dni" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="anio_ingreso" class="control-label"></label>
+                <input asp-for="anio_ingreso" class="form-control" />
+                <span asp-validation-for="anio_ingreso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" /> | 
+                <a asp-action="ListadoEmpleados" class="btn btn-info">Regresar</a>
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    @ViewBag.Mensaje
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
