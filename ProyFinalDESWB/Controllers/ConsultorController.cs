@@ -100,24 +100,25 @@ namespace ProyFinalDESWB.Controllers
             return View(obj);
         }
 
+        
         //GET
-        public ActionResult EliminarConsultor(string codcon)
+        public ActionResult EliminarConsultor(string cod_consultores)
         {
-            var listado = condao.ListadoConsultores().Find(c => c.cod_consultores.Equals(codcon));
+            var listado = condao.buscarConsultores(cod_consultores);
 
             return View(listado);
-        }
+        } 
 
-        /*
+        
         //POST
         [HttpPost]
-        public ActionResult EliminarConsultor(string codcon)
+        public ActionResult EliminarConsultor(string cod_consultores, SP_ACTUALIZAR_CONSULTOR obj)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    ViewBag.Mensaje = condao.EliminarConsultor(codcon);
+                    ViewBag.Mensaje = condao.EliminarConsultor(cod_consultores);
                 }
             }
             catch (Exception ex)
@@ -125,8 +126,8 @@ namespace ProyFinalDESWB.Controllers
                 ViewBag.Mensaje = ex.Message;
             }
 
-            return View();
-        } */
+            return Json(new { success = true});
+        }
 
     }
 }
