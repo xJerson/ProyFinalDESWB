@@ -32,15 +32,15 @@ namespace ProyFinalDESWB.DAO
             return listado;
         }
 
-        public List<Consultores> ListadoConsultores()
+        public List<SP_LISTAR_CONSULTOR> ListadoConsultores()
         {
-            var listado = new List<Consultores>();
+            var listado = new List<SP_LISTAR_CONSULTOR>();
 
             SqlDataReader dr = SqlHelper.ExecuteReader(cad_conex, "SP_LISTAR_CONSULTOR");
 
             while (dr.Read())
             {
-                listado.Add(new Consultores
+                listado.Add(new SP_LISTAR_CONSULTOR
                 {
                     cod_consultores = dr.GetString(0),
                     nombre = dr.GetString(1),
