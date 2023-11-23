@@ -49,10 +49,52 @@
                 @Html.DisplayFor(modelItem => item.anio_ingreso)
             </td>
             <td>
-                <a asp-action="" class="btn btn-warning">Actualizar</a> |
-                <a asp-action="" class="btn btn-danger">Eliminar</a>
+                    <a asp-action="ActualizarEmpleados" asp-route-cod_empleados="@item.cod_empleados" class="btn btn-warning">Actualizar</a> |
+                    <button type="button" class="btn btn-danger btnEliminar">Eliminar</button>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<div class="modal fade" id="modalEliminar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Eliminar Programador</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="EliminarEmpleados" method="post">
+                <div class="modal-body">
+                    <input type="hidden" name="cod_empleados" id="cod_empleados">
+                    <span id="nomemple"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".btnEliminar").on('click', function () {
+                $('#modalEliminar').modal('show');
+                $tr = $(this).closest('tr');
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+                console.log(data);
+                $('#cod_empleados').val(data[0]);
+                $('#nomemple').text("Estas seguro de eliminar al programador " + data[1] + " " + data[2] + "?");
+            })
+        });
+    </script>
+    
+}
