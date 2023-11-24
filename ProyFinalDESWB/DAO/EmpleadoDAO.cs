@@ -77,12 +77,12 @@ namespace ProyFinalDESWB.DAO
             }
         }
 
-        public string EliminarEmpleado(string cod)
+        public string EliminarEmpleado(string cod_empleados)
         {
             try
             {
-                SqlHelper.ExecuteNonQuery(cad_conex, "SP_ELIMINAR_EMPLEADO", cod);
-                return $"El empleado {cod} a sido eliminado";
+                SqlHelper.ExecuteNonQuery(cad_conex, "SP_ELIMINAR_EMPLEADO", cod_empleados);
+                return $"El empleado {cod_empleados} a sido eliminado";
             }
             catch (Exception ex)
             {

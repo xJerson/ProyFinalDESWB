@@ -50,30 +50,27 @@
             </td>
             <td>
                     <a asp-action="ActualizarEmpleados" asp-route-cod_empleados="@item.cod_empleados" class="btn btn-warning">Actualizar</a> |
-                    <button type="button" class="btn btn-danger btnEliminar">Eliminar</button>
+                    <a class="btn btn-danger" data-cod_empleados="@item.cod_empleados">Eliminar</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
 
-<div class="modal fade" id="modalEliminar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Eliminar Programador</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar Eliminación</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="EliminarEmpleados" method="post">
-                <div class="modal-body">
-                    <input type="hidden" name="cod_empleados" id="cod_empleados">
-                    <span id="nomemple"></span>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                </div>
-            </form>
+            <div class="modal-body">
+                <span id="respuesta"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button id="btnEliminarEmpleado" type="button" class="btn btn-danger">Confirmar</button>
+            </div>
         </div>
     </div>
 </div>
@@ -81,19 +78,41 @@
 @section Scripts {
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script>
         $(document).ready(function () {
-            $(".btnEliminar").on('click', function () {
-                $('#modalEliminar').modal('show');
-                $tr = $(this).closest('tr');
-                var data = $tr.children("td").map(function () {
-                    return $(this).text();
-                }).get();
-                console.log(data);
-                $('#cod_empleados').val(data[0]);
-                $('#nomemple').text("Estas seguro de eliminar al programador " + data[1] + " " + data[2] + "?");
-            })
+            // Manejar el clic del botón Eliminar
+            $(".btn-danger").click(function () {
+                var codEmpleado = $(this).data("cod_empleados");
+                // Configurar el modal de confirmación
+                $("#modalEliminar").modal('show');
+                // Asignar el código del consultor al botón de confirmación en el modal
+                $("#btnEliminarEmpleado").data("cod_empleados", codEmpleado);
+            });
+
+            // Manejar el clic del botón Confirmar Eliminación en el modal
+            $("#btnEliminarEmpleado").click(function () {
+                var codEmpleado = $(this).data("cod_empleados");
+
+                // Realizar la eliminación a través de AJAX
+                $.ajax({
+                    url: "/Empleado/EliminarEmpleados",
+                    method: "POST",
+                    data: { cod_empleados: codEmpleado },
+                    success: function (response) {
+                        // Manejar la respuesta (puedes actualizar la tabla u otros elementos según sea necesario)
+                        console.log(response);
+                        $("#modalEliminar").modal('hide');
+                        location.reload(); // Recargar la página (puedes cambiar esto según tus necesidades)
+                    },
+                    error: function (error) {
+                        console.log(error);
+                        $("#modalEliminar").modal('hide');
+                        alert("Error al eliminar el consultor."); //PARA PODER ELIMINAR
+                    }
+                });
+            });
         });
     </script>
     

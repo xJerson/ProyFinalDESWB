@@ -56,7 +56,6 @@
             </td>
             <td>
                     <a asp-action="ActualizarConsultor" class="btn btn-warning" asp-route-cod_consultores="@item.cod_consultores">Actualizar</a> |
-                    <!--</1><a asp-action="EliminarConsultor" asp-route-cod_consultores="@item.cod_consultores" class="btn btn-danger">Eliminar</a> -->
                     <a data-cod_consultores="@item.cod_consultores" class="btn btn-danger">Eliminar</a>
             </td>
         </tr>
@@ -72,7 +71,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ¿Estás seguro de que deseas eliminar al consultor? 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

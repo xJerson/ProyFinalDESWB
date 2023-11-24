@@ -71,16 +71,25 @@ namespace ProyFinalDESWB.Controllers
 
             return View(obj);
         }
+        
+        //GET
+        public ActionResult EliminarEmpleados(string cod_empleados)
+        {
+            var emp = empdao.buscarEmpleado(cod_empleados);
+
+            return View(emp);
+        }
 
         //POST
         [HttpPost]
-        public ActionResult EliminarEmpleados(string cod_empleados)
+        public ActionResult EliminarEmpleados(string cod_empleados, SP_ACTUALIZAR_EMPLEADOS obj)
         {
             try
             {
                 if(ModelState.IsValid)
                 {
                     ViewBag.Mensaje = empdao.EliminarEmpleado(cod_empleados);
+                    return Json(new { success = true });
                 }
             }
             catch (Exception ex)
@@ -88,7 +97,7 @@ namespace ProyFinalDESWB.Controllers
                 ViewBag.Mensaje = ex.Message;
             }
 
-            return RedirectToAction("ListadoEmpleados");
+            return Json(new { success = true });
         }
     }
 }
