@@ -50,7 +50,7 @@
             </td>
             <td>
                     <a asp-action="ActualizarEmpleados" asp-route-cod_empleados="@item.cod_empleados" class="btn btn-warning">Actualizar</a> |
-                    <a class="btn btn-danger" data-cod_empleados="@item.cod_empleados">Eliminar</a>
+                    <a class="btn btn-danger btn-Eliminar" data-cod_empleados="@item.cod_empleados" data-nomape="@item.nombres @item.apellidos">Eliminar</a>
             </td>
         </tr>
 }
@@ -83,12 +83,14 @@
     <script>
         $(document).ready(function () {
             // Manejar el clic del botón Eliminar
-            $(".btn-danger").click(function () {
+            $("a.btn-Eliminar").click(function () {
                 var codEmpleado = $(this).data("cod_empleados");
+                var nomape = $(this).data("nomape");
                 // Configurar el modal de confirmación
                 $("#modalEliminar").modal('show');
                 // Asignar el código del consultor al botón de confirmación en el modal
                 $("#btnEliminarEmpleado").data("cod_empleados", codEmpleado);
+                $("#respuesta").text("¿Estas seguro que deseas eliminar a " + nomape + "?");
             });
 
             // Manejar el clic del botón Confirmar Eliminación en el modal

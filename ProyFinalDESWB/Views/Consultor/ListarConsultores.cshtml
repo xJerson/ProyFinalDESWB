@@ -56,7 +56,7 @@
             </td>
             <td>
                     <a asp-action="ActualizarConsultor" class="btn btn-warning" asp-route-cod_consultores="@item.cod_consultores">Actualizar</a> |
-                    <a data-cod_consultores="@item.cod_consultores" class="btn btn-danger">Eliminar</a>
+                    <a data-cod_consultores="@item.cod_consultores" data-nomcon="@item.nombre @item.apellido" class="btn btn-danger">Eliminar</a>
             </td>
         </tr>
 }
@@ -71,6 +71,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <span id="rsptaEliConsultor"></span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -90,10 +91,12 @@
             // Manejar el clic del botón Eliminar
             $(".btn-danger").click(function () {
                 var codConsultor = $(this).data("cod_consultores");
+                var nomape = $(this).data("nomcon");
                 // Configurar el modal de confirmación
                 $("#modalEliminar").modal('show');
                 // Asignar el código del consultor al botón de confirmación en el modal
                 $("#btnEliminarConfirmar").data("cod_consultores", codConsultor);
+                $("#rsptaEliConsultor").text("¿Estas seguro que deseas eliminar al consultor "+ nomape + "?");
             });
 
             // Manejar el clic del botón Confirmar Eliminación en el modal

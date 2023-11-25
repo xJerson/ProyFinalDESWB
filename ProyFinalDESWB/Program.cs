@@ -27,16 +27,16 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-
+/*
 app.MapControllerRoute(
     name: "Empleados",
     pattern: "{controller=Empleado}/{action=ListadoEmpleados}/{id?}");
-
-/*
+*/
+///*
 app.MapControllerRoute(
     name: "Consultores",
     pattern: "{controller=Consultor}/{action=ListarConsultores}/{id?}");
-*/
+//*/
 /*
 app.MapControllerRoute(
     name: "default",

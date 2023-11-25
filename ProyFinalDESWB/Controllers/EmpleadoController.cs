@@ -73,16 +73,17 @@ namespace ProyFinalDESWB.Controllers
         }
         
         //GET
+        /*
         public ActionResult EliminarEmpleados(string cod_empleados)
         {
             var emp = empdao.buscarEmpleado(cod_empleados);
 
             return View(emp);
         }
-
+        */
         //POST
         [HttpPost]
-        public ActionResult EliminarEmpleados(string cod_empleados, SP_ACTUALIZAR_EMPLEADOS obj)
+        public ActionResult EliminarEmpleados(string cod_empleados)
         {
             try
             {
