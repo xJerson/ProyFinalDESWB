@@ -26,6 +26,10 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+<<<<<<< HEAD
+=======
+
+>>>>>>> d032bf3d0dbd90e3d0f605501839bdb38467cd41
 /*
 app.MapControllerRoute(
     name: "Empleados",
@@ -34,8 +38,12 @@ app.MapControllerRoute(
 ///*
 app.MapControllerRoute(
     name: "Consultores",
+<<<<<<< HEAD
     pattern: "{controller=Consultor}/{action=ListarConsultores}/{id?}");*/
 
+=======
+    pattern: "{controller=Consultor}/{action=ListarConsultores}/{id?}");
+>>>>>>> d032bf3d0dbd90e3d0f605501839bdb38467cd41
 //*/
 /*
 app.MapControllerRoute(

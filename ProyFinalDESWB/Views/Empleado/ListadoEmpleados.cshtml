@@ -49,10 +49,73 @@
                 @Html.DisplayFor(modelItem => item.anio_ingreso)
             </td>
             <td>
-                <a asp-action="" class="btn btn-warning">Actualizar</a> |
-                <a asp-action="" class="btn btn-danger">Eliminar</a>
+                    <a asp-action="ActualizarEmpleados" asp-route-cod_empleados="@item.cod_empleados" class="btn btn-warning">Actualizar</a> |
+                    <a class="btn btn-danger btn-Eliminar" data-cod_empleados="@item.cod_empleados" data-nomape="@item.nombres @item.apellidos">Eliminar</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar Eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <span id="respuesta"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button id="btnEliminarEmpleado" type="button" class="btn btn-danger">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Manejar el clic del botón Eliminar
+            $("a.btn-Eliminar").click(function () {
+                var codEmpleado = $(this).data("cod_empleados");
+                var nomape = $(this).data("nomape");
+                // Configurar el modal de confirmación
+                $("#modalEliminar").modal('show');
+                // Asignar el código del consultor al botón de confirmación en el modal
+                $("#btnEliminarEmpleado").data("cod_empleados", codEmpleado);
+                $("#respuesta").text("¿Estas seguro que deseas eliminar a " + nomape + "?");
+            });
+
+            // Manejar el clic del botón Confirmar Eliminación en el modal
+            $("#btnEliminarEmpleado").click(function () {
+                var codEmpleado = $(this).data("cod_empleados");
+
+                // Realizar la eliminación a través de AJAX
+                $.ajax({
+                    url: "/Empleado/EliminarEmpleados",
+                    method: "POST",
+                    data: { cod_empleados: codEmpleado },
+                    success: function (response) {
+                        // Manejar la respuesta (puedes actualizar la tabla u otros elementos según sea necesario)
+                        console.log(response);
+                        $("#modalEliminar").modal('hide');
+                        location.reload(); // Recargar la página (puedes cambiar esto según tus necesidades)
+                    },
+                    error: function (error) {
+                        console.log(error);
+                        $("#modalEliminar").modal('hide');
+                        alert("Error al eliminar el consultor."); //PARA PODER ELIMINAR
+                    }
+                });
+            });
+        });
+    </script>
+    
+}

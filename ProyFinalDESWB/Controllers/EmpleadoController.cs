@@ -45,5 +45,60 @@ namespace ProyFinalDESWB.Controllers
             return View(obj);
         }
 
+        //GET
+        public ActionResult ActualizarEmpleados(string cod_empleados)
+        {
+            var emp = empdao.buscarEmpleado(cod_empleados);
+
+            return View(emp);
+        }
+
+        //POST
+        [HttpPost]
+        public ActionResult ActualizarEmpleados(SP_ACTUALIZAR_EMPLEADOS obj)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    ViewBag.Mensaje = empdao.ActualizarEmpleado(obj);
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Mensaje = ex.Message;
+            }
+
+            return View(obj);
+        }
+        
+        //GET
+        /*
+        public ActionResult EliminarEmpleados(string cod_empleados)
+        {
+            var emp = empdao.buscarEmpleado(cod_empleados);
+
+            return View(emp);
+        }
+        */
+        //POST
+        [HttpPost]
+        public ActionResult EliminarEmpleados(string cod_empleados)
+        {
+            try
+            {
+                if(ModelState.IsValid)
+                {
+                    ViewBag.Mensaje = empdao.EliminarEmpleado(cod_empleados);
+                    return Json(new { success = true });
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Mensaje = ex.Message;
+            }
+
+            return Json(new { success = true });
+        }
     }
 }

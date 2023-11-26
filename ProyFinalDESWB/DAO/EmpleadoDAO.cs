@@ -36,17 +36,17 @@ namespace ProyFinalDESWB.DAO
             return listado;
         }
 
-        public SP_LISTAR_EMPLEADOS buscarEmpleado(String cod)
+        public SP_ACTUALIZAR_EMPLEADOS buscarEmpleado(String cod)
         {
-            SP_LISTAR_EMPLEADOS? emp = ListadoEmpleado().Find(e => e.cod_empleados.Equals(cod));
+            var emp = ListadoEmpleado().Find(e => e.cod_empleados.Equals(cod));
 
-            SP_LISTAR_EMPLEADOS resultado = new SP_LISTAR_EMPLEADOS()
+            SP_ACTUALIZAR_EMPLEADOS resultado = new SP_ACTUALIZAR_EMPLEADOS()
             {
-                cod_empleados = emp.cod_empleados,
-                nombres = emp.nombres,
-                apellidos = emp.apellidos,
+                nombre = emp.nombres,
+                apellido = emp.apellidos,
                 dni = emp.dni,
-                anio_ingreso = emp.anio_ingreso
+                anio_ingreso = emp.anio_ingreso,
+                cod_empleados = emp.cod_empleados
             };
             return resultado;
         }
@@ -64,11 +64,11 @@ namespace ProyFinalDESWB.DAO
             }
         }
 
-        public string ActualizarEmpleado(SP_LISTAR_EMPLEADOS obj)
+        public string ActualizarEmpleado(SP_ACTUALIZAR_EMPLEADOS obj)
         {
             try
             {
-                SqlHelper.ExecuteNonQuery(cad_conex, "SP_ACTUALIZAR_EMPLEADO", obj.nombres, obj.apellidos, obj.dni, obj.anio_ingreso, obj.cod_empleados);
+                SqlHelper.ExecuteNonQuery(cad_conex, "SP_ACTUALIZAR_EMPLEADO", obj.nombre, obj.apellido, obj.dni, obj.anio_ingreso, obj.cod_empleados);
                 return $"El empleado {obj.cod_empleados} a sido actualizado";
             }
             catch (Exception ex)
@@ -77,12 +77,12 @@ namespace ProyFinalDESWB.DAO
             }
         }
 
-        public string EliminarEmpleado(string cod)
+        public string EliminarEmpleado(string cod_empleados)
         {
             try
             {
-                SqlHelper.ExecuteNonQuery(cad_conex, "SP_ELIMINAR_EMPLEADO", cod);
-                return $"El empleado {cod} a sido eliminado";
+                SqlHelper.ExecuteNonQuery(cad_conex, "SP_ELIMINAR_EMPLEADO", cod_empleados);
+                return $"El empleado {cod_empleados} a sido eliminado";
             }
             catch (Exception ex)
             {
