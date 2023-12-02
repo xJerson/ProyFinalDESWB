@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\PROGRAMACION\\PROYECTO\\ProySerGit\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {}
+    "D:\\SERVICIOSPROYECTOS\\Proyecto\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {}
   },
   "projects": {
-    "E:\\PROGRAMACION\\PROYECTO\\ProySerGit\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {
+    "D:\\SERVICIOSPROYECTOS\\Proyecto\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\PROGRAMACION\\PROYECTO\\ProySerGit\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
+        "projectUniqueName": "D:\\SERVICIOSPROYECTOS\\Proyecto\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
         "projectName": "ProyFinalDESWB",
-        "projectPath": "E:\\PROGRAMACION\\PROYECTO\\ProySerGit\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
-        "packagesPath": "C:\\Users\\Fredy\\.nuget\\packages\\",
-        "outputPath": "E:\\PROGRAMACION\\PROYECTO\\ProySerGit\\ProyFinalDESWB\\ProyFinalDESWB\\obj\\",
+        "projectPath": "D:\\SERVICIOSPROYECTOS\\Proyecto\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
+        "packagesPath": "C:\\Users\\Inz\\.nuget\\packages\\",
+        "outputPath": "D:\\SERVICIOSPROYECTOS\\Proyecto\\ProyFinalDESWB\\ProyFinalDESWB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Fredy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Inz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -57,9 +57,9 @@ namespace ProyFinalDESWB.DAO
 
         }
 
-        public SP_ACTUALIZAR_CONSULTOR buscarConsultores(string codcon)
+        public SP_ACTUALIZAR_CONSULTOR buscarConsultores(string cod_consultores)
         {
-            var listado = ListadoConsultores().Find(c => c.cod_consultores.Equals(codcon));
+            var listado = ListadoConsultores().Find(c => c.cod_consultores.Equals(cod_consultores));
 
             SP_ACTUALIZAR_CONSULTOR resultado = new SP_ACTUALIZAR_CONSULTOR()
             {
