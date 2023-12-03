@@ -17,7 +17,7 @@ namespace ProyFinalDESWB.Controllers
             using (var httpcliente = new HttpClient())
             {
                 var respuesta =
-                    await httpcliente.GetAsync("http://localhost:5093/api/Cliente/ListarClienteNo");
+                    await httpcliente.GetAsync("http://localhost:7277/api/Cliente/ListarClienteNo");
                 string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
 
                 listado = JsonConvert.DeserializeObject<List<ListarCliente>>(respuestaAPI);
@@ -33,7 +33,7 @@ namespace ProyFinalDESWB.Controllers
             using (var httpcliente = new HttpClient())
             {
                 var respuesta =
-                    await httpcliente.GetAsync("http://localhost:5093/api/Cliente/ListarTipoCliente");
+                    await httpcliente.GetAsync("http://localhost:7277/api/Cliente/ListarTipoCliente");
                 string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
 
                 listado = JsonConvert.DeserializeObject<List<ListarTipoCliente>>(respuestaAPI);
@@ -52,7 +52,7 @@ namespace ProyFinalDESWB.Controllers
             using (var httpcliente = new HttpClient())
             {
                 var respuesta =
-                    await httpcliente.GetAsync("http://localhost:5093/api/Cliente/ListarTipoCliente");
+                    await httpcliente.GetAsync("http://localhost:7277/api/Cliente/ListarTipoCliente");
                 string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
 
                 listadoTipoCli = JsonConvert.DeserializeObject<List<ListarTipoCliente>>(respuestaAPI);
@@ -77,7 +77,7 @@ namespace ProyFinalDESWB.Controllers
                 using (var httpcliente = new HttpClient())
                 {
                     var respuesta =
-                        await httpcliente.GetAsync("http://localhost:5093/api/Cliente/ListarTipoCliente");
+                        await httpcliente.GetAsync("http://localhost:7277/api/Cliente/ListarTipoCliente");
                     string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
 
                     listadoTipoCli = JsonConvert.DeserializeObject<List<ListarTipoCliente>>(respuestaAPI);
@@ -90,7 +90,7 @@ namespace ProyFinalDESWB.Controllers
                 {
                     StringContent contenido = new StringContent(
                         JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
-                    var respuesta = await httpcliente.PostAsync("http://localhost:5093/api/Cliente/PostCliente", contenido);
+                    var respuesta = await httpcliente.PostAsync("http://localhost:7277/api/Cliente/PostCliente", contenido);
 
                     string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
                     ViewBag.ClienteReg = respuestaAPI;
@@ -112,7 +112,7 @@ namespace ProyFinalDESWB.Controllers
             using (var httpclienteTipo = new HttpClient())
             {
                 var respuesta =
-                    await httpclienteTipo.GetAsync("http://localhost:5093/api/Cliente/ListarTipoCliente");
+                    await httpclienteTipo.GetAsync("http://localhost:7277/api/Cliente/ListarTipoCliente");
                 string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
 
                 listadoTipoCli = JsonConvert.DeserializeObject<List<ListarTipoCliente>>(respuestaAPI);
@@ -126,7 +126,7 @@ namespace ProyFinalDESWB.Controllers
             using (var httpclienteNo = new HttpClient())
             {
                 var respuesta =
-                    await httpclienteNo.GetAsync("http://localhost:5093/api/Cliente/ListarClienteNo");
+                    await httpclienteNo.GetAsync("http://localhost:7277/api/Cliente/ListarClienteNo");
                 string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
 
                 listado = JsonConvert.DeserializeObject<List<ActualizarCliente>>(respuestaAPI);
@@ -149,7 +149,7 @@ namespace ProyFinalDESWB.Controllers
                 using (var httpcliente = new HttpClient())
                 {
                     var respuesta =
-                        await httpcliente.GetAsync("http://localhost:5093/api/Cliente/ListarTipoCliente");
+                        await httpcliente.GetAsync("http://localhost:7277/api/Cliente/ListarTipoCliente");
                     string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
 
                     listadoTipoCli = JsonConvert.DeserializeObject<List<ListarTipoCliente>>(respuestaAPI);
@@ -162,7 +162,7 @@ namespace ProyFinalDESWB.Controllers
                 {
                     StringContent contenido = new StringContent(
                         JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
-                    var respuesta = await httpcliente.PutAsync("http://localhost:5093/api/Cliente/PutCliente", contenido);
+                    var respuesta = await httpcliente.PutAsync("http://localhost:7277/api/Cliente/PutCliente", contenido);
                     string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
                     ViewBag.EmpleadoActu = respuestaAPI;
                 }
@@ -183,7 +183,7 @@ namespace ProyFinalDESWB.Controllers
             {
                 using (var httpcliente = new HttpClient())
                 {
-                    var respuesta = await httpcliente.DeleteAsync($"http://localhost:5093/api/Cliente/DeleteCliente/{codcli}");
+                    var respuesta = await httpcliente.DeleteAsync($"http://localhost:7277/api/Cliente/DeleteCliente/{codcli}");
                     string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
                     ViewBag.EliminarCliente = respuestaAPI;
                 }
