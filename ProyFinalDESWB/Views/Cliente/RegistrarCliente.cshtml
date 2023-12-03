@@ -13,9 +13,9 @@
         <form asp-action="RegistrarCliente">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="nomcom" class="control-label"></label>
-                <input asp-for="nomcom" class="form-control" />
-                <span asp-validation-for="nomcom" class="text-danger"></span>
+                <label asp-for="nombrescompletos" class="control-label"></label>
+                <input asp-for="nombrescompletos" class="form-control" />
+                <span asp-validation-for="nombrescompletos" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="dniruc" class="control-label"></label>
@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="tipocli" class="control-label"></label>
-                @Html.DropDownList("codtipocli", (SelectList)ViewBag.TipoCli,
+                @Html.DropDownList("tipocli", (SelectList)ViewBag.TipoCli,
                 "Seleccionar Tipo", new { @class = "form-select"})
             </div>
             <br />

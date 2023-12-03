@@ -30,6 +30,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.nomtipocliente)
             </th>
+            <th hidden>
+                @Html.DisplayNameFor(model => model.tipocli)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -54,6 +57,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.nomtipocliente)
             </td>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.tipocli)
+                </td>
             <td>
                     <a asp-action="ActualizarCliente" asp-route-codcliente="@item.codcliente" class="btn btn-info">Actualizar</a> |
                     <a asp-action="" class="btn btn-danger">Eliminar</a>

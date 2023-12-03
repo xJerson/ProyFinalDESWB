@@ -35,7 +35,7 @@ app.MapControllerRoute(
 //*
 app.MapControllerRoute(
     name: "Consultores",
-    pattern: "{controller=Empleado}/{action=ListarEmpleadoNo}/{id?}");
+    pattern: "{controller=Cliente}/{action=ListarClienteNo}/{id?}");
 //*/
 
 /*

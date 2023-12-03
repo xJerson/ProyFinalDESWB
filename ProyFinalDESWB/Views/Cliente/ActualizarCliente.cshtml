@@ -13,9 +13,9 @@
         <form asp-action="ActualizarCliente">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="nomcom" class="control-label"></label>
-                <input asp-for="nomcom" class="form-control" />
-                <span asp-validation-for="nomcom" class="text-danger"></span>
+                <label asp-for="nombrescompletos" class="control-label"></label>
+                <input asp-for="nombrescompletos" class="form-control" />
+                <span asp-validation-for="nombrescompletos" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="dniruc" class="control-label"></label>
@@ -34,13 +34,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="tipocli" class="control-label"></label>
-                <input asp-for="tipocli" class="form-control" />
+                @Html.DropDownList("tipocli", 
+                (SelectList)ViewBag.TipoCli, "Seleccionar Tipo", new { @class = "form-select"})
                 <span asp-validation-for="tipocli" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="codcli" class="control-label"></label>
-                <input asp-for="codcli" class="form-control" />
-                <span asp-validation-for="codcli" class="text-danger"></span>
+                <label asp-for="codcliente" class="control-label"></label>
+                <input asp-for="codcliente" class="form-control" />
+                <span asp-validation-for="codcliente" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -50,7 +51,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <p>@ViewBag.EmpleadoActu</p>
 </div>
 
 @section Scripts {

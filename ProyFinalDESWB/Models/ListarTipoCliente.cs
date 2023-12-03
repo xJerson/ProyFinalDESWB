@@ -2,7 +2,7 @@
 {
     public class ListarTipoCliente
     {
-        public int codtipocli { get; set; }
-        public string nomtipocli { get; set; }
+        public int tipocli { get; set; }
+        public string nomtipocliente { get; set; }
     }
 }

@@ -59,7 +59,7 @@ namespace ProyFinalDESWB.Controllers
             }
 
             ViewBag.TipoCli = new SelectList(
-                listadoTipoCli, "codtipocli", "nomtipocli");
+                listadoTipoCli, "tipocli", "nomtipocliente");
 
             return View(cliente);
         }
@@ -84,7 +84,7 @@ namespace ProyFinalDESWB.Controllers
                 }
 
                 ViewBag.TipoCli = new SelectList(
-                    listadoTipoCli, "codtipocli", "nomtipocli");
+                    listadoTipoCli, "tipocli", "nomtipocliente");
 
                 using (var httpcliente = new HttpClient())
                 {
@@ -119,7 +119,7 @@ namespace ProyFinalDESWB.Controllers
             }
 
             ViewBag.TipoCli = new SelectList(
-                listadoTipoCli, "codtipocli", "nomtipocli");
+                listadoTipoCli, "tipocli", "nomtipocliente");
 
             var listado = new List<ActualizarCliente>();
 
@@ -132,7 +132,7 @@ namespace ProyFinalDESWB.Controllers
                 listado = JsonConvert.DeserializeObject<List<ActualizarCliente>>(respuestaAPI);
             }
 
-            ActualizarCliente? clieactu = listado.Find(c => c.codcli.Equals(codcliente));
+            ActualizarCliente? clieactu = listado.Find(c => c.codcliente.Equals(codcliente));
 
             return View(clieactu);
         }
@@ -156,7 +156,7 @@ namespace ProyFinalDESWB.Controllers
                 }
 
                 ViewBag.TipoCli = new SelectList(
-                    listadoTipoCli, "codtipocli", "nomtipocli");
+                    listadoTipoCli, "tipocli", "nomtipocliente");
 
                 using (var httpcliente = new HttpClient())
                 {

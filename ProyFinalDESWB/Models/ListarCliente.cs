@@ -8,5 +8,6 @@
         public string direccion { get; set; }
         public string correo { get; set; }
         public string nomtipocliente { get; set; }
+        public int tipocli { get; set; }
     }
 }

@@ -57,7 +57,7 @@
     </tbody>
 </table>
 
-<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalEliminarEmpleado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -87,10 +87,10 @@
                 var codemp = $(this).data("codemp");
                 var nomemp = $(this).data("nomemp");
                 // Configurar el modal de confirmación
-                $("#modalEliminar").modal('show');
-                // Asignar el código del consultor al botón de confirmación en el modal
+                $("#modalEliminarEmpleado").modal('show');
+                // Asignar el código del empleado al botón de confirmación en el modal
                 $("#btnEliminarEmpleadoConfirmar").data("codemp", codemp);
-                $("#rsptaEliEmpleado").text("¿Estas seguro que deseas eliminar al consultor " + nomemp + "?");
+                $("#rsptaEliEmpleado").text("¿Estás seguro que deseas eliminar al empleado " + nomemp + "?");
             });
 
             // Manejar el clic del botón Confirmar Eliminación en el modal
@@ -103,15 +103,22 @@
                     method: "POST",
                     data: { codemp: codEmpleado },
                     success: function (response) {
-                        // Manejar la respuesta (puedes actualizar la tabla u otros elementos según sea necesario)
-                        console.log(response);
-                        $("#modalEliminar").modal('hide');
-                        location.reload(); // Recargar la página (puedes cambiar esto según tus necesidades)
+                        // Manejar la respuesta
+                        if (response.success) {
+                            console.log(response); // Puedes mostrar información en la consola si lo deseas
+                            $("#modalEliminarEmpleado").modal('hide');
+                            // Puedes realizar acciones específicas sin recargar la página, como actualizar la tabla
+                            // Por ejemplo, puedes eliminar la fila correspondiente a ese empleado de la tabla
+                            $("tr[data-codemp='" + codEmpleado + "']").remove();
+                        } else {
+                            console.error(response.message);
+                            alert("Error al eliminar al empleado.");
+                        }
                     },
                     error: function (error) {
-                        console.log(error);
-                        $("#modalEliminar").modal('hide');
-                        alert("Error al eliminar al empleado."); //PARA PODER ELIMINAR
+                        console.error(error);
+                        $("#modalEliminarEmpleado").modal('hide');
+                        alert("Error al eliminar al empleado.");
                     }
                 });
             });

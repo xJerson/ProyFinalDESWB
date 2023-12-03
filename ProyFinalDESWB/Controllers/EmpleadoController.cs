@@ -123,18 +123,16 @@ namespace ProyFinalDESWB.Controllers
                 using(var httpcliente = new HttpClient()) 
                 {
                     var respuesta = await httpcliente.DeleteAsync($"http://localhost:5093/api/Empleado/EliminarEmpleado/{codemp}");
-                    string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
-                    ViewBag.Eliminar = respuestaAPI;
-                    return Json(new { success = true });
+                    ViewBag.Eliminar = respuesta;
                 }
             }
             catch (Exception ex)
             {
                 ViewBag.Eliminar = ex.Message;
-                return Json(new { success = true });
+                
             }
 
-            
+            return Json(new { success = true });
         }
     }
 }
