@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SERVICIOSPROYECTOS\\Proyecto\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {}
+    "J:\\PROYECTOAPIANIMAD\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {}
   },
   "projects": {
-    "D:\\SERVICIOSPROYECTOS\\Proyecto\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {
+    "J:\\PROYECTOAPIANIMAD\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SERVICIOSPROYECTOS\\Proyecto\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
+        "projectUniqueName": "J:\\PROYECTOAPIANIMAD\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
         "projectName": "ProyFinalDESWB",
-        "projectPath": "D:\\SERVICIOSPROYECTOS\\Proyecto\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
-        "packagesPath": "C:\\Users\\Inz\\.nuget\\packages\\",
-        "outputPath": "D:\\SERVICIOSPROYECTOS\\Proyecto\\ProyFinalDESWB\\ProyFinalDESWB\\obj\\",
+        "projectPath": "J:\\PROYECTOAPIANIMAD\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
+        "packagesPath": "C:\\Users\\jerso\\.nuget\\packages\\",
+        "outputPath": "J:\\PROYECTOAPIANIMAD\\ProyFinalDESWB\\ProyFinalDESWB\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Inz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jerso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

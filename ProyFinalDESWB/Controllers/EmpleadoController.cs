@@ -16,7 +16,7 @@ namespace ProyFinalDESWB.Controllers
             using(var httpcliente = new HttpClient())
             {
                 var respuesta = 
-                    await httpcliente.GetAsync("http://localhost:5093/api/Empleado/ListaEmpleadoNo");
+                    await httpcliente.GetAsync("http://localhost:7277/api/Empleado/ListaEmpleadoNo");
                 string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
 
                 listado = JsonConvert.DeserializeObject<List<ListarEmpleado>>(respuestaAPI);
@@ -51,7 +51,7 @@ namespace ProyFinalDESWB.Controllers
                 {
                     StringContent contenido = new StringContent(
                         JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
-                    var respuesta = await httpempleado.PostAsync("http://localhost:5093/api/Empleado/RegistrarEmpleado", contenido);
+                    var respuesta = await httpempleado.PostAsync("http://localhost:7277/api/Empleado/RegistrarEmpleado", contenido);
 
                     string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
                     ViewBag.EmpleadoReg = respuestaAPI;
@@ -73,7 +73,7 @@ namespace ProyFinalDESWB.Controllers
             using (var httpcliente = new HttpClient())
             {
                 var respuesta =
-                    await httpcliente.GetAsync("http://localhost:5093/api/Empleado/ListaEmpleadoNo");
+                    await httpcliente.GetAsync("http://localhost:7277/api/Empleado/ListaEmpleadoNo");
                 string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
 
                 listado = JsonConvert.DeserializeObject<List<ActualizarEmpleado>>(respuestaAPI);
@@ -95,7 +95,7 @@ namespace ProyFinalDESWB.Controllers
                 {
                     StringContent contenido = new StringContent(
                         JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
-                    var respuesta = await httpcliente.PutAsync("http://localhost:5093/api/Empleado/ActualizarEmpleado", contenido);
+                    var respuesta = await httpcliente.PutAsync("http://localhost:7277/api/Empleado/ActualizarEmpleado", contenido);
                     string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
                     ViewBag.EmpleadoActu = respuestaAPI;
                 }
@@ -122,7 +122,7 @@ namespace ProyFinalDESWB.Controllers
             {
                 using(var httpcliente = new HttpClient()) 
                 {
-                    var respuesta = await httpcliente.DeleteAsync($"http://localhost:5093/api/Empleado/EliminarEmpleado/{codemp}");
+                    var respuesta = await httpcliente.DeleteAsync($"http://localhost:7277/api/Empleado/EliminarEmpleado/{codemp}");
                     string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
                     ViewBag.Eliminar = respuestaAPI;
                     return Json(new { success = true });

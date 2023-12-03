@@ -9,81 +9,81 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProyFinalDESWB
 build_property.RootNamespace = ProyFinalDESWB
-build_property.ProjectDir = D:\SERVICIOSPROYECTOS\Proyecto\ProyFinalDESWB\ProyFinalDESWB\
+build_property.ProjectDir = J:\PROYECTOAPIANIMAD\ProyFinalDESWB\ProyFinalDESWB\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\SERVICIOSPROYECTOS\Proyecto\ProyFinalDESWB\ProyFinalDESWB
+build_property.MSBuildProjectDirectory = J:\PROYECTOAPIANIMAD\ProyFinalDESWB\ProyFinalDESWB
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/ActualizarCliente.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/ActualizarCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxBY3R1YWxpemFyQ2xpZW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/ListarClienteNo.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/ListarClienteNo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxMaXN0YXJDbGllbnRlTm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/RegistrarCliente.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/RegistrarCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxSZWdpc3RyYXJDbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Consultor/ActualizarConsultor.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Consultor/ActualizarConsultor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdG9yXEFjdHVhbGl6YXJDb25zdWx0b3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Consultor/EliminarConsultor.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Consultor/EliminarConsultor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdG9yXEVsaW1pbmFyQ29uc3VsdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Consultor/GrabarConsultores.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Consultor/GrabarConsultores.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdG9yXEdyYWJhckNvbnN1bHRvcmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Consultor/ListarConsultores.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Consultor/ListarConsultores.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdG9yXExpc3RhckNvbnN1bHRvcmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Empleado/ActualizarEmpleado.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Empleado/ActualizarEmpleado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cQWN0dWFsaXphckVtcGxlYWRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Empleado/ListarEmpleadoNo.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Empleado/ListarEmpleadoNo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cTGlzdGFyRW1wbGVhZG9Oby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Empleado/RegistrarEmpleado.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Empleado/RegistrarEmpleado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cUmVnaXN0cmFyRW1wbGVhZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Home/Index.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Home/Privacy.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Shared/Error.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Shared/_ValidationScriptsPartial.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/template/template.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/template/template.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGVtcGxhdGVcdGVtcGxhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/_ViewImports.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/_ViewStart.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SERVICIOSPROYECTOS/Proyecto/ProyFinalDESWB/ProyFinalDESWB/Views/Shared/_Layout.cshtml]
+[J:/PROYECTOAPIANIMAD/ProyFinalDESWB/ProyFinalDESWB/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-4c96s525mr
