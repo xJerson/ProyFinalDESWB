@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProyFinalDESWB.Models.ListarCliente>
+
+@{
+    ViewData["Title"] = "ListarClienteNo";
+}
+
+<h1>ListarClienteNo</h1>
+
+<p>
+    <a asp-action="RegistrarCliente">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.codcliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombrescompletos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dniruc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nomtipocliente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.codcliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombrescompletos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dniruc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomtipocliente)
+            </td>
+            <td>
+                    <a asp-action="ActualizarCliente" asp-route-codcliente="@item.codcliente" class="btn btn-info">Actualizar</a> |
+                    <a asp-action="" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

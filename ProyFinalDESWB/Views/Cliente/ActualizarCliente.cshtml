@@ -1,28 +1,21 @@
-﻿@model ProyFinalDESWB.Models.GrabarCliente
+﻿@model ProyFinalDESWB.Models.ActualizarCliente
 
 @{
-    ViewData["Title"] = "GrabarCliente";
+    ViewData["Title"] = "ActualizarCliente";
 }
 
+<h1>ActualizarCliente</h1>
 
-
-<h4 class="mt-3">GrabarCliente</h4>
+<h4>ActualizarCliente</h4>
 <hr />
-
-<div class="container mb-3" style="margin-left : 30%;">
-    <a asp-action="ListadoClientes" class="btn btn-success">Listado Clientes</a>
-
-</div>  
-   
-<div class="row" style="margin-left : 520px;">  
-
+<div class="row">
     <div class="col-md-4">
-        <form asp-action="GrabarCliente" class="form-control">
+        <form asp-action="ActualizarCliente">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="nombres_completo" class="control-label"></label>
-                <input asp-for="nombres_completo" class="form-control" />
-                <span asp-validation-for="nombres_completo" class="text-danger"></span>
+                <label asp-for="nomcom" class="control-label"></label>
+                <input asp-for="nomcom" class="form-control" />
+                <span asp-validation-for="nomcom" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="dniruc" class="control-label"></label>
@@ -41,17 +34,25 @@
             </div>
             <div class="form-group">
                 <label asp-for="tipocli" class="control-label"></label>
-                @Html.DropDownList("tipocli", (SelectList)ViewBag.Tipos,
-                "Seleccione", new { @class = "form-select" })
+                <input asp-for="tipocli" class="form-control" />
                 <span asp-validation-for="tipocli" class="text-danger"></span>
             </div>
-            <div class="form-group mt-2 text-center">
-                <input type="submit" value="Create" class="btn btn-warning" />
+            <div class="form-group">
+                <label asp-for="codcli" class="control-label"></label>
+                <input asp-for="codcli" class="form-control" />
+                <span asp-validation-for="codcli" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-<br>
+
 <div>
-    @ViewBag.Mensaje
+    <a asp-action="Index">Back to List</a>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

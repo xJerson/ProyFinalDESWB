@@ -1,31 +1,21 @@
-﻿@model ProyFinalDESWB.Models.Cliente
+﻿@model ProyFinalDESWB.Models.AgregarCliente
 
 @{
-    ViewData["Title"] = "EditCliente";
+    ViewData["Title"] = "RegistrarCliente";
 }
-<style>
-    .readonly-field {
-        cursor: default;
-    }
-</style>
 
-<h1>EditCliente</h1>
+<h1>RegistrarCliente</h1>
 
-<h4>Cliente</h4>
+<h4>AgregarCliente</h4>
 <hr />
-<div class="row" style="margin-left : 520px;">
+<div class="row">
     <div class="col-md-4">
-        <form asp-action="EditCliente">
+        <form asp-action="RegistrarCliente">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="cod_cliente" class="control-label"></label>
-                <input asp-for="cod_cliente" class="form-control readonly-field" readonly />
-                <span asp-validation-for="cod_cliente" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="nombres_completo" class="control-label"></label>
-                <input asp-for="nombres_completo" class="form-control" />
-                <span asp-validation-for="nombres_completo" class="text-danger"></span>
+                <label asp-for="nomcom" class="control-label"></label>
+                <input asp-for="nomcom" class="form-control" />
+                <span asp-validation-for="nomcom" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="dniruc" class="control-label"></label>
@@ -44,22 +34,22 @@
             </div>
             <div class="form-group">
                 <label asp-for="tipocli" class="control-label"></label>
-                @Html.DropDownList("tipocli", (SelectList)ViewBag.Tipos,
-                "Seleccione", new { @class = "form-select" })
-                <span asp-validation-for="tipocli" class="text-danger"></span>
+                @Html.DropDownList("codtipocli", (SelectList)ViewBag.TipoCli,
+                "Seleccionar Tipo", new { @class = "form-select"})
             </div>
-            <div class="form-group mt-2">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Registrar" class="btn btn-primary" /> |
+                <a asp-action="ListarClienteNo" class="btn btn-info">Regresar al listado</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-    

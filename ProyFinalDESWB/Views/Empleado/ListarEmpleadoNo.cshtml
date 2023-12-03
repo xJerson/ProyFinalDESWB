@@ -1,31 +1,31 @@
-﻿@model IEnumerable<ProyFinalDESWB.Models.SP_LISTAR_EMPLEADOS>
+﻿@model IEnumerable<ProyFinalDESWB.Models.ListarEmpleado>
 
 @{
-    ViewData["Title"] = "ListadoEmpleados";
+    ViewData["Title"] = "ListarEmpleadoNo";
 }
 
-<h1>ListadoEmpleados</h1>
-
+<h1>Lista de Empleados</h1>
+<br />
 <p>
-    <a asp-action="GrabarEmpleados" class="btn btn-primary">Nuevo Empleado</a>
+    <a asp-action="RegistrarEmpleado" class="btn btn-primary">Registrar Empleado</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.cod_empleados)
+                @Html.DisplayNameFor(model => model.codemp)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.nombres)
+                @Html.DisplayNameFor(model => model.nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.apellidos)
+                @Html.DisplayNameFor(model => model.apellido)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.dni)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.anio_ingreso)
+                @Html.DisplayNameFor(model => model.fecnac)
             </th>
             <th></th>
         </tr>
@@ -34,23 +34,23 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.cod_empleados)
+                @Html.DisplayFor(modelItem => item.codemp)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.nombres)
+                @Html.DisplayFor(modelItem => item.nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.apellidos)
+                @Html.DisplayFor(modelItem => item.apellido)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.dni)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.anio_ingreso)
+                @Html.DisplayFor(modelItem => item.fecnac)
             </td>
             <td>
-                    <a asp-action="ActualizarEmpleados" asp-route-cod_empleados="@item.cod_empleados" class="btn btn-warning">Actualizar</a> |
-                    <a class="btn btn-danger btn-Eliminar" data-cod_empleados="@item.cod_empleados" data-nomape="@item.nombres @item.apellidos">Eliminar</a>
+                <a asp-action="ActualizarEmpleado" asp-route-codemp="@item.codemp" class="btn btn-info">Actualizar</a> |
+                <a data-codemp="@item.codemp" data-nomemp="@item.nombre @item.apellido" class="btn btn-danger EmpleadoEliButton">Eliminar</a>
             </td>
         </tr>
 }
@@ -65,11 +65,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <span id="respuesta"></span>
+                <span id="rsptaEliEmpleado"></span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button id="btnEliminarEmpleado" type="button" class="btn btn-danger">Confirmar</button>
+                <button id="btnEliminarEmpleadoConfirmar" type="button" class="btn btn-danger">Confirmar</button>
             </div>
         </div>
     </div>
@@ -83,25 +83,25 @@
     <script>
         $(document).ready(function () {
             // Manejar el clic del botón Eliminar
-            $("a.btn-Eliminar").click(function () {
-                var codEmpleado = $(this).data("cod_empleados");
-                var nomape = $(this).data("nomape");
+            $("a.EmpleadoEliButton").click(function () {
+                var codemp = $(this).data("codemp");
+                var nomemp = $(this).data("nomemp");
                 // Configurar el modal de confirmación
                 $("#modalEliminar").modal('show');
                 // Asignar el código del consultor al botón de confirmación en el modal
-                $("#btnEliminarEmpleado").data("cod_empleados", codEmpleado);
-                $("#respuesta").text("¿Estas seguro que deseas eliminar a " + nomape + "?");
+                $("#btnEliminarEmpleadoConfirmar").data("codemp", codemp);
+                $("#rsptaEliEmpleado").text("¿Estas seguro que deseas eliminar al consultor " + nomemp + "?");
             });
 
             // Manejar el clic del botón Confirmar Eliminación en el modal
-            $("#btnEliminarEmpleado").click(function () {
-                var codEmpleado = $(this).data("cod_empleados");
+            $("#btnEliminarEmpleadoConfirmar").click(function () {
+                var codEmpleado = $(this).data("codemp");
 
                 // Realizar la eliminación a través de AJAX
                 $.ajax({
-                    url: "/Empleado/EliminarEmpleados",
+                    url: "/Empleado/EliminarEmpleado",
                     method: "POST",
-                    data: { cod_empleados: codEmpleado },
+                    data: { codemp: codEmpleado },
                     success: function (response) {
                         // Manejar la respuesta (puedes actualizar la tabla u otros elementos según sea necesario)
                         console.log(response);
@@ -111,11 +111,10 @@
                     error: function (error) {
                         console.log(error);
                         $("#modalEliminar").modal('hide');
-                        alert("Error al eliminar el consultor."); //PARA PODER ELIMINAR
+                        alert("Error al eliminar al empleado."); //PARA PODER ELIMINAR
                     }
                 });
             });
         });
     </script>
-    
 }

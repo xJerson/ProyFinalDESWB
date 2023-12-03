@@ -7,7 +7,6 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ClienteDAO>();
 builder.Services.AddScoped<ConsultoresDAO>();
-builder.Services.AddScoped<EmpleadoDao>();
 
 var app = builder.Build();
 
@@ -36,7 +35,7 @@ app.MapControllerRoute(
 //*
 app.MapControllerRoute(
     name: "Consultores",
-    pattern: "{controller=Consultor}/{action=ListarConsultores}/{id?}");
+    pattern: "{controller=Empleado}/{action=ListarEmpleadoNo}/{id?}");
 //*/
 
 /*

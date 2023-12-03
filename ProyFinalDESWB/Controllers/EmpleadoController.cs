@@ -1,104 +1,140 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ProyFinalDESWB.DAO;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using ProyFinalDESWB.Models;
+using System.Text;
 
 namespace ProyFinalDESWB.Controllers
 {
     public class EmpleadoController : Controller
     {
-        private readonly EmpleadoDao empdao;
-
-        public EmpleadoController(EmpleadoDao empd)
+        // GET: EmpleadoController
+        public async Task<ActionResult> ListarEmpleadoNo()
         {
-            empdao = empd;
-        }
+            var listado = new List<ListarEmpleado>();
 
-        public IActionResult ListadoEmpleados()
-        {
-            var listado = empdao.ListadoEmpleado();
+            using(var httpcliente = new HttpClient())
+            {
+                var respuesta = 
+                    await httpcliente.GetAsync("http://localhost:5093/api/Empleado/ListaEmpleadoNo");
+                string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
+
+                listado = JsonConvert.DeserializeObject<List<ListarEmpleado>>(respuestaAPI);
+            }
+
             return View(listado);
         }
 
-        //GET
-        public ActionResult GrabarEmpleados()
-        {
-            SP_REGISTRAR_EMPLEADOS emp = new SP_REGISTRAR_EMPLEADOS();
-            return View(emp);
-        }
-
-        //POST
-        [HttpPost]
-        public ActionResult GrabarEmpleados(SP_REGISTRAR_EMPLEADOS obj)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    ViewBag.Mensaje = empdao.GrabarEmpleado(obj);
-                }
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Mensaje = ex.Message;
-            }
-
-            return View(obj);
-        }
-
-        //GET
-        public ActionResult ActualizarEmpleados(string cod_empleados)
-        {
-            var emp = empdao.buscarEmpleado(cod_empleados);
-
-            return View(emp);
-        }
-
-        //POST
-        [HttpPost]
-        public ActionResult ActualizarEmpleados(SP_ACTUALIZAR_EMPLEADOS obj)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    ViewBag.Mensaje = empdao.ActualizarEmpleado(obj);
-                }
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Mensaje = ex.Message;
-            }
-
-            return View(obj);
-        }
-        
-        //GET
         /*
-        public ActionResult EliminarEmpleados(string cod_empleados)
+        // GET: EmpleadoController/Details/5
+        public ActionResult Details(int id)
         {
-            var emp = empdao.buscarEmpleado(cod_empleados);
-
-            return View(emp);
+            return View();
         }
         */
-        //POST
+
+        // GET: EmpleadoController/Create
+        public ActionResult RegistrarEmpleado()
+        {
+            AgregarEmpleado empleado = new AgregarEmpleado();
+            return View(empleado);
+        }
+
+        // POST: EmpleadoController/Create
         [HttpPost]
-        public ActionResult EliminarEmpleados(string cod_empleados)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegistrarEmpleado(AgregarEmpleado obj)
         {
             try
             {
-                if(ModelState.IsValid)
+                using(var httpempleado = new HttpClient())
                 {
-                    ViewBag.Mensaje = empdao.EliminarEmpleado(cod_empleados);
+                    StringContent contenido = new StringContent(
+                        JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
+                    var respuesta = await httpempleado.PostAsync("http://localhost:5093/api/Empleado/RegistrarEmpleado", contenido);
+
+                    string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
+                    ViewBag.EmpleadoReg = respuestaAPI;
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.EmpleadoReg = ex.Message;
+            }
+
+            return View(obj);
+        }
+
+        // GET: EmpleadoController/Edit/5
+        public async Task<ActionResult> ActualizarEmpleado(string codemp)
+        {
+            var listado = new List<ActualizarEmpleado>();
+
+            using (var httpcliente = new HttpClient())
+            {
+                var respuesta =
+                    await httpcliente.GetAsync("http://localhost:5093/api/Empleado/ListaEmpleadoNo");
+                string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
+
+                listado = JsonConvert.DeserializeObject<List<ActualizarEmpleado>>(respuestaAPI);
+            }
+
+            ActualizarEmpleado? empactu = listado.Find(e => e.codemp.Equals(codemp));
+
+            return View(empactu);
+        }
+
+        // POST: EmpleadoController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ActualizarEmpleado(ActualizarEmpleado obj)
+        {
+            try
+            {
+                using(var httpcliente = new HttpClient())
+                {
+                    StringContent contenido = new StringContent(
+                        JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
+                    var respuesta = await httpcliente.PutAsync("http://localhost:5093/api/Empleado/ActualizarEmpleado", contenido);
+                    string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
+                    ViewBag.EmpleadoActu = respuestaAPI;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ViewBag.EmpleadoActu = ex.Message;
+            }
+            return View(obj);
+        }
+
+        // GET: EmpleadoController/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: EmpleadoController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EliminarEmpleado(string codemp)
+        {
+            try
+            {
+                using(var httpcliente = new HttpClient()) 
+                {
+                    var respuesta = await httpcliente.DeleteAsync($"http://localhost:5093/api/Empleado/EliminarEmpleado/{codemp}");
+                    string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
+                    ViewBag.Eliminar = respuestaAPI;
                     return Json(new { success = true });
                 }
             }
             catch (Exception ex)
             {
-                ViewBag.Mensaje = ex.Message;
+                ViewBag.Eliminar = ex.Message;
+                return Json(new { success = true });
             }
 
-            return Json(new { success = true });
+            
         }
     }
 }

@@ -1,22 +1,17 @@
-﻿@model ProyFinalDESWB.Models.SP_ACTUALIZAR_EMPLEADOS
+﻿@model ProyFinalDESWB.Models.ActualizarEmpleado
 
 @{
-    ViewData["Title"] = "ActualizarEmpleados";
+    ViewData["Title"] = "ActualizarEmpleado";
 }
 
-<h1>ActualizarEmpleados</h1>
+<h1>ActualizarEmpleado</h1>
 
-<h4>SP_ACTUALIZAR_EMPLEADOS</h4>
+<h4>ActualizarEmpleado</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="ActualizarEmpleados">
+        <form asp-action="ActualizarEmpleado">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="cod_empleados" class="control-label"></label>
-                <input asp-for="cod_empleados" class="form-control" />
-                <span asp-validation-for="cod_empleados" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="nombre" class="control-label"></label>
                 <input asp-for="nombre" class="form-control" />
@@ -33,20 +28,26 @@
                 <span asp-validation-for="dni" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="anio_ingreso" class="control-label"></label>
-                <input asp-for="anio_ingreso" class="form-control" />
-                <span asp-validation-for="anio_ingreso" class="text-danger"></span>
+                <label asp-for="fecnac" class="control-label"></label>
+                <input asp-for="fecnac" class="form-control" />
+                <span asp-validation-for="fecnac" class="text-danger"></span>
             </div>
+            <div class="form-group" hidden>
+                <label asp-for="codemp" class="control-label"></label>
+                <input asp-for="codemp" class="form-control" />
+                <span asp-validation-for="codemp" class="text-danger"></span>
+            </div>
+            <br />
             <div class="form-group">
-                <input type="submit" value="Actualizar" class="btn btn-primary" /> | 
-                <a asp-action="ListadoEmpleados" class="btn btn-info">Regresar al Listado</a>
+                <input type="submit" value="Save" class="btn btn-primary" /> |
+                <a asp-action="ListarEmpleadoNo" class="btn btn-info">Regresar a la lista</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    @ViewBag.Mensaje
+    
 </div>
 
 @section Scripts {
