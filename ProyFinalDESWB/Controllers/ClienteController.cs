@@ -1,146 +1,199 @@
-﻿using System.Reflection;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ProyFinalDESWB.DAO;
-using ProyFinalDESWB.Models;
-using Newtonsoft.Json;
-using System.Data.SqlClient;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
+using Newtonsoft.Json;
+using ProyFinalDESWB.Models;
+using System.Text;
 
 namespace ProyFinalDESWB.Controllers
 {
-
-         
     public class ClienteController : Controller
     {
-        private readonly ClienteDAO dao;
-        
-
-        public ClienteController(ClienteDAO _dao)
-        {
-            dao = _dao;
-        }
-
-
         // GET: ClienteController
-
-        public ActionResult ListadoClientes()
+        public async Task<ActionResult> ListarClienteNo()
         {
-            
+            var listado = new List<ListarCliente>();
 
-            var listado = dao.ListadoClientes();
+            using (var httpcliente = new HttpClient())
+            {
+                var respuesta =
+                    await httpcliente.GetAsync("http://localhost:7277/api/Cliente/ListarClienteNo");
+                string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
+
+                listado = JsonConvert.DeserializeObject<List<ListarCliente>>(respuestaAPI);
+            }
+
             return View(listado);
         }
-   
 
-    
-
-
-
-    // GET: ClienteController/Details/5
-    public ActionResult Details(int id)
+        public async Task<ActionResult> ListarTipoCliente()
         {
-            return View();
+            var listado = new List<ListarTipoCliente>();
+
+            using (var httpcliente = new HttpClient())
+            {
+                var respuesta =
+                    await httpcliente.GetAsync("http://localhost:7277/api/Cliente/ListarTipoCliente");
+                string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
+
+                listado = JsonConvert.DeserializeObject<List<ListarTipoCliente>>(respuestaAPI);
+            }
+
+            return View(listado);
         }
 
         // GET: ClienteController/Create
-        public ActionResult GrabarCliente()
+        public async Task<ActionResult> RegistrarCliente()
         {
-            GrabarCliente nuevo = new GrabarCliente();
-           
-            ViewBag.Tipos = new SelectList(
-                dao.ListadoTipos(),
-                "cod_tipocli",
-                "nom_tipocli"
+            AgregarCliente cliente = new AgregarCliente();
 
-                );
-            
+            var listadoTipoCli = new List<ListarTipoCliente>();
 
-            return View(nuevo);
+            using (var httpcliente = new HttpClient())
+            {
+                var respuesta =
+                    await httpcliente.GetAsync("http://localhost:7277/api/Cliente/ListarTipoCliente");
+                string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
+
+                listadoTipoCli = JsonConvert.DeserializeObject<List<ListarTipoCliente>>(respuestaAPI);
+            }
+
+            ViewBag.TipoCli = new SelectList(
+                listadoTipoCli, "codtipocli", "nomtipocli");
+
+            return View(cliente);
         }
 
         // POST: ClienteController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult GrabarCliente(GrabarCliente nuevo)
+        public async Task<ActionResult> RegistrarCliente(AgregarCliente obj)
         {
             try
             {
-                if (ModelState.IsValid == true)
-                    ViewBag.Mensaje = dao.GrabarCliente(nuevo);
+                
+                var listadoTipoCli = new List<ListarTipoCliente>();
+
+                using (var httpcliente = new HttpClient())
+                {
+                    var respuesta =
+                        await httpcliente.GetAsync("http://localhost:7277/api/Cliente/ListarTipoCliente");
+                    string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
+
+                    listadoTipoCli = JsonConvert.DeserializeObject<List<ListarTipoCliente>>(respuestaAPI);
+                }
+
+                ViewBag.TipoCli = new SelectList(
+                    listadoTipoCli, "codtipocli", "nomtipocli");
+
+                using (var httpcliente = new HttpClient())
+                {
+                    StringContent contenido = new StringContent(
+                        JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
+                    var respuesta = await httpcliente.PostAsync("http://localhost:7277/api/Cliente/PostCliente", contenido);
+
+                    string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
+                    ViewBag.ClienteReg = respuestaAPI;
+                }
             }
             catch (Exception ex)
             {
-                ViewBag.Mensaje = ex.Message;
+                ViewBag.ClienteReg = ex.Message;
             }
 
-            ViewBag.Tipos = new SelectList(
-             dao.ListadoTipos(),
-             "cod_tipocli",
-             "nom_tipocli"
-
-             );
-
-            return View(nuevo);
+            return View(obj);
         }
 
         // GET: ClienteController/Edit/5
-        public ActionResult EditCliente(string id)
+        public async Task<ActionResult> ActualizarCliente(string codcliente)
         {
-            Cliente buscar = dao.ListadoClientes().Find(c => c.cod_cliente.Equals(id));
-           
-            ViewBag.Tipos = new SelectList(
-         dao.ListadoTipos(),
-         "cod_tipocli",
-         "nom_tipocli"
+            var listadoTipoCli = new List<ListarTipoCliente>();
 
-         );
+            using (var httpclienteTipo = new HttpClient())
+            {
+                var respuesta =
+                    await httpclienteTipo.GetAsync("http://localhost:7277/api/Cliente/ListarTipoCliente");
+                string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
 
-            return View(buscar);
+                listadoTipoCli = JsonConvert.DeserializeObject<List<ListarTipoCliente>>(respuestaAPI);
+            }
+
+            ViewBag.TipoCli = new SelectList(
+                listadoTipoCli, "codtipocli", "nomtipocli");
+
+            var listado = new List<ActualizarCliente>();
+
+            using (var httpclienteNo = new HttpClient())
+            {
+                var respuesta =
+                    await httpclienteNo.GetAsync("http://localhost:7277/api/Cliente/ListarClienteNo");
+                string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
+
+                listado = JsonConvert.DeserializeObject<List<ActualizarCliente>>(respuestaAPI);
+            }
+
+            ActualizarCliente? clieactu = listado.Find(c => c.codcli.Equals(codcliente));
+
+            return View(clieactu);
         }
 
         // POST: ClienteController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditCliente(string id, Cliente objc)
+        public async Task<ActionResult> ActualizarEmpleado(ActualizarCliente obj)
         {
             try
             {
-                if (ModelState.IsValid == true)
-                    ViewBag.Mensaje = dao.EditCliente(objc);
+                var listadoTipoCli = new List<ListarTipoCliente>();
+
+                using (var httpcliente = new HttpClient())
+                {
+                    var respuesta =
+                        await httpcliente.GetAsync("http://localhost:7277/api/Cliente/ListarTipoCliente");
+                    string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
+
+                    listadoTipoCli = JsonConvert.DeserializeObject<List<ListarTipoCliente>>(respuestaAPI);
+                }
+
+                ViewBag.TipoCli = new SelectList(
+                    listadoTipoCli, "codtipocli", "nomtipocli");
+
+                using (var httpcliente = new HttpClient())
+                {
+                    StringContent contenido = new StringContent(
+                        JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
+                    var respuesta = await httpcliente.PutAsync("http://localhost:7277/api/Cliente/PutCliente", contenido);
+                    string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
+                    ViewBag.EmpleadoActu = respuestaAPI;
+                }
             }
             catch (Exception ex)
             {
-                ViewBag.Mensaje = ex.Message;
+                return ViewBag.EmpleadoActu = ex.Message;
             }
-          ViewBag.Tipos = new SelectList(
-          dao.ListadoTipos(),
-          "cod_tipocli",
-          "nom_tipocli"
-
-      );
-            return View(objc);
-        }
-
-        // GET: ClienteController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
+            return View(obj);
         }
 
         // POST: ClienteController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> EliminarCliente(string codcli)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                using (var httpcliente = new HttpClient())
+                {
+                    var respuesta = await httpcliente.DeleteAsync($"http://localhost:7277/api/Cliente/DeleteCliente/{codcli}");
+                    string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
+                    ViewBag.EliminarCliente = respuestaAPI;
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ViewBag.EliminarCliente = ex.Message;
             }
+
+            return Json(new { success = true });
         }
     }
 }

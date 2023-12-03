@@ -16,16 +16,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = J:\avancefredygay\ProyFinalDESWB\ProyFinalDESWB
 build_property._RazorSourceGeneratorDebug = 
 
-[J:/avancefredygay/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/EditCliente.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxFZGl0Q2xpZW50ZS5jc2h0bWw=
+[J:/avancefredygay/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/ActualizarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxBY3R1YWxpemFyQ2xpZW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[J:/avancefredygay/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/GrabarCliente.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxHcmFiYXJDbGllbnRlLmNzaHRtbA==
+[J:/avancefredygay/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/ListarClienteNo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxMaXN0YXJDbGllbnRlTm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[J:/avancefredygay/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/ListadoClientes.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxMaXN0YWRvQ2xpZW50ZXMuY3NodG1s
+[J:/avancefredygay/ProyFinalDESWB/ProyFinalDESWB/Views/Cliente/RegistrarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxSZWdpc3RyYXJDbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [J:/avancefredygay/ProyFinalDESWB/ProyFinalDESWB/Views/Consultor/ActualizarConsultor.cshtml]
@@ -44,16 +44,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdG9yXExpc3RhckNvbnN1bHRvcmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[J:/avancefredygay/ProyFinalDESWB/ProyFinalDESWB/Views/Empleado/ActualizarEmpleados.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cQWN0dWFsaXphckVtcGxlYWRvcy5jc2h0bWw=
+[J:/avancefredygay/ProyFinalDESWB/ProyFinalDESWB/Views/Empleado/ActualizarEmpleado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cQWN0dWFsaXphckVtcGxlYWRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[J:/avancefredygay/ProyFinalDESWB/ProyFinalDESWB/Views/Empleado/GrabarEmpleados.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cR3JhYmFyRW1wbGVhZG9zLmNzaHRtbA==
+[J:/avancefredygay/ProyFinalDESWB/ProyFinalDESWB/Views/Empleado/ListarEmpleadoNo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cTGlzdGFyRW1wbGVhZG9Oby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[J:/avancefredygay/ProyFinalDESWB/ProyFinalDESWB/Views/Empleado/ListadoEmpleados.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cTGlzdGFkb0VtcGxlYWRvcy5jc2h0bWw=
+[J:/avancefredygay/ProyFinalDESWB/ProyFinalDESWB/Views/Empleado/RegistrarEmpleado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cUmVnaXN0cmFyRW1wbGVhZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [J:/avancefredygay/ProyFinalDESWB/ProyFinalDESWB/Views/Home/Index.cshtml]
