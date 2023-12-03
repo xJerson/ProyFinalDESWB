@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\PROGRAMACION\\PROYECTO\\ProySerGit\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {}
+    "J:\\avancefredygay\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {}
   },
   "projects": {
-    "E:\\PROGRAMACION\\PROYECTO\\ProySerGit\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {
+    "J:\\avancefredygay\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\PROGRAMACION\\PROYECTO\\ProySerGit\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
+        "projectUniqueName": "J:\\avancefredygay\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
         "projectName": "ProyFinalDESWB",
-        "projectPath": "E:\\PROGRAMACION\\PROYECTO\\ProySerGit\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
-        "packagesPath": "C:\\Users\\Fredy\\.nuget\\packages\\",
-        "outputPath": "E:\\PROGRAMACION\\PROYECTO\\ProySerGit\\ProyFinalDESWB\\ProyFinalDESWB\\obj\\",
+        "projectPath": "J:\\avancefredygay\\ProyFinalDESWB\\ProyFinalDESWB\\ProyFinalDESWB.csproj",
+        "packagesPath": "C:\\Users\\jerso\\.nuget\\packages\\",
+        "outputPath": "J:\\avancefredygay\\ProyFinalDESWB\\ProyFinalDESWB\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Fredy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jerso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
